@@ -20,6 +20,7 @@
   ### Suggested videos:
   
   → Removes ads/sponsored elements from the suggested videos next to the player;
+  
   ![](https://github.com/prslv/YouTube-AD-skipper-blocker/assets/104658946/fdadead6-be71-4a5d-a380-c232d3f4a557)
 
 

@@ -74,7 +74,7 @@
   
   And by 'seed' I mean, 1 page refresh = different seed. It's weird how I get either unskippable ads every 5 videos, or only skippable ads for like 30 videos, but that might just be me.
 
-  Once this ad appeared, the skipAd(); function would constantly execute until the ad is skipped by itself, or by the user. So the button is recognized, but for some reason it's not triggering. 
+  Once this ad appeared, the skipAd(); function would constantly execute until the ad is skipped by itself, or by the user. So the button is recognized, but for some reason it's not triggering the '.click()' on the button element. 
 
   I also noticed that right clicking with my mouse anywhere on this ad wouldn't work as well.
 

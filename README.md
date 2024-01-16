@@ -33,7 +33,7 @@
     Chrome, Version 120.0.6099.217
     Edge, Version 120.0.2210.133
 
-    Tested in both browsers in Incognito windows and rejected cookies, which resulted in more ads than usual, it succesfully skipped all video player ads and removed every single ad element on each page reload/video change.  Except the 'Last man standing' ad, which appeared in different page refreshes and remained unskippable. Read more about the 'Last one standing' ad at the bottom of this file.
+  Tested in both browsers in Incognito windows and rejected cookies, which resulted in more ads than usual, it succesfully skipped all video player ads and removed every single ad element on each page reload/video change.  Except the 'Last man standing' ad, which appeared in different page refreshes and remained unskippable. Read more about the 'Last one standing' ad at the bottom of this file.
   
 ## Video Page
 

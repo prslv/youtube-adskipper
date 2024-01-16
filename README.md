@@ -36,6 +36,8 @@
   → Skips the skippable ads;
   
   → Mutes and sets the Playback speed of unskippable ads to the maximum (16x);
+
+    When an unskippable ad is detected, it sets the opacity of the player to 0.
   
   ![](https://github.com/prslv/YouTube-AD-skipper-blocker/assets/104658946/9bab61a3-0103-4713-8ac1-49272e0f68e8)
 

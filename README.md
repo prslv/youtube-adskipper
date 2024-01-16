@@ -73,6 +73,12 @@
   While testing the extension, It appeared that depending on which 'seed' you land on, you might get this kind of ad after an unskippable ad once every 10-15 ads, or not get it at all.
   
   And by 'seed' I mean, 1 page refresh = different seed. It's weird how I get either unskippable ads every 5 videos, or only skippable ads for like 30 videos, but that might just be me.
+
+  Once this ad appeared, the skipAd(); function would constantly execute until the ad is skipped by itself, or by the user. So the button is recognized, but for some reason it's not triggering. 
+
+  I also noticed that right clicking with my mouse anywhere on this ad wouldn't work as well.
+
+  The ad:
   
 ![](https://github.com/prslv/YouTube-AD-skipper-blocker/assets/104658946/036cea1d-6622-4d34-b2a3-281703645d83)
 

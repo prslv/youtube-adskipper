@@ -1,5 +1,27 @@
 # YouTube AD skipper/blocker Extension
 
+## How to install
+
+  ### Download and unzip the files:
+
+  ![image (7)](https://github.com/prslv/YouTube-AdSkipper/assets/104658946/440395bb-8e60-418c-97cf-c9e9a2c4321a)
+
+### Load the extension:
+
+  > On chrome, type "chrome://extensions/" in the search bar
+  
+  > Enable developer mode by clicking on the slider at the top right:
+
+  ![image (5)](https://github.com/prslv/YouTube-AdSkipper/assets/104658946/42825f06-ea58-4c21-8df6-bc5565d8da32)
+
+  > Click on "Load unpacked"
+
+  ![image (6)](https://github.com/prslv/YouTube-AdSkipper/assets/104658946/d6963a8e-2767-4292-80af-dbd82b1488f7)
+
+  > Select the folder and open youtube
+
+  > Done.
+
 ## Note
 
   → Currently only tested on

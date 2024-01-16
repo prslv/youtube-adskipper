@@ -8,7 +8,7 @@
 
 ### Load the extension:
 
-  > For Chrome: type "chrome://extensions/" in the search bar
+  > For Chrome: type 'chrome://extensions/' in the search bar
   
   > Enable 'Developer mode':
 

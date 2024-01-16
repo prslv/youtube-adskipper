@@ -3,7 +3,9 @@
 ## Note
 
   → Currently only tested on
+  
     Chrome, Version 120.0.6099.217
+    
     Edge, Version 120.0.2210.133
   
 ## Video Page

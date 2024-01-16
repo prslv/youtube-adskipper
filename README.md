@@ -8,7 +8,7 @@
 
 ### Load the extension:
 
-  > On chrome, type "chrome://extensions/" in the search bar
+  > For Chrome: type "chrome://extensions/" in the search bar
   
   > Enable developer mode by clicking on the slider at the top right:
 
@@ -22,8 +22,12 @@
 
   > Done.
 
+  > Same process on Edge.
+
 ## Note
 
+  → Coming to the Chrome Web Store soon!
+  
   → Currently only tested on
   
     Chrome, Version 120.0.6099.217

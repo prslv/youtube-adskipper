@@ -18,7 +18,7 @@
 
   ![image (6)](https://github.com/prslv/YouTube-AdSkipper/assets/104658946/d6963a8e-2767-4292-80af-dbd82b1488f7)
 
-  > Select the folder and open youtube
+  > Select the folder you just unzipped and open youtube
 
   > Done.
 

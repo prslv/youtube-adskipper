@@ -10,11 +10,11 @@
 
   > For Chrome: type "chrome://extensions/" in the search bar
   
-  > Enable developer mode by clicking on the slider at the top right:
+  > Enable 'Developer mode':
 
   ![image (5)](https://github.com/prslv/YouTube-AdSkipper/assets/104658946/42825f06-ea58-4c21-8df6-bc5565d8da32)
 
-  > Click on "Load unpacked"
+  > Click on 'Load unpacked':
 
   ![image (6)](https://github.com/prslv/YouTube-AdSkipper/assets/104658946/d6963a8e-2767-4292-80af-dbd82b1488f7)
 
@@ -65,7 +65,9 @@
   ![](https://github.com/prslv/YouTube-AD-skipper-blocker/assets/104658946/bd9c2184-c657-43d1-ba28-08764f1a469f)
 
 # LAST MAN STANDING
+
   ### The only video ad it was unable to skip (for me), is this one. It appears after an unskippable ad once in a blue moon.
+  
   While testing the extension, It appeared that depending on which 'seed' you land on, you might get this kind of ad after an unskippable ad once every 10-15 ads, or not get it at all.
   
   And by 'seed' I mean, 1 page refresh = different seed. It's weird how I get either unskippable ads every 5 videos, or only skippable ads for like 30 videos, but that might just be me.

@@ -22,7 +22,7 @@
 
   > Done.
 
-  > Same process on Edge.
+  > Same process on Edge, except you navigate to "edge://extensions/".
 
 ## Note
 

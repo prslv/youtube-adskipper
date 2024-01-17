@@ -59,7 +59,7 @@
                 setTimeout(() => {
                     videoPlayer.play();
                     // console.log('%c VIDEO IS PAUSED, RESUMING PLAYBACK! ', 'background: #222; color: #bada55');
-                }, 100);
+                }, 1000);
             }
         }
 
@@ -74,9 +74,16 @@
 
         // if you prefer, use a function
         function muteAndSpeedUp(player, speed, overlay) {
-            player.mute = true;
+
             player.style.opacity = 0;
             player.playbackRate = speed;
+            
+                // I stg this worked the first day, now it just doesn't ??
+                setTimeout(() => {
+                    // This is supposed to mute the player while the unskippable ad is playing
+                    player.mute = true;
+                },100);
+                ///////////
 
             const adOverlayObserver = new MutationObserver(() => {
                 // Set the opacity to 1 (show the video) and disconnect the observer

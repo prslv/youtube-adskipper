@@ -50,7 +50,8 @@
   Update (17 Jan): The first day of using it my self the muting of the unskippable ad worked fine, next day (surprise) it just stopped working.
 
   → When an unskippable ad is detected, it sets the opacity of the player to 0;
-  
+
+  Example of the ad it removes (not how it looks when it's removed, I purposely removed the ad details):
   ![](https://github.com/prslv/YouTube-AD-skipper-blocker/assets/104658946/9bab61a3-0103-4713-8ac1-49272e0f68e8)
 
   ### Suggested videos:

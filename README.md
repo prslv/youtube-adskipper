@@ -30,7 +30,7 @@
 
   > Unskippable ads can only to be sped up;
 
-  > '.mute = true' failed for unskippable ads, resulting in a short annoying sound (still better than a whole ad);
+  > Line: 84 'player.mute = true' failed for unskippable ads, resulting in a short annoying sound (still better than a whole ad);
 
   > The last man standing ad (read below).
 

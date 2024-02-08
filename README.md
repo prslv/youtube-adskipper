@@ -36,6 +36,8 @@
 
 ## Note
 
+  → Update (Feb 8, 24'), known issue with ads not being skipped while having the collapsed (happens when you have a mix/queue running, and you click the youtube logo).
+
   → Coming to the Chrome Web Store soon!
 
   → This extension does NOT slow down youtube, like others (e.g. AdBlock) do.

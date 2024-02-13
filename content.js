@@ -1,6 +1,7 @@
 /*
-    Repo: https://github.com/prslv/YouTube-AD-skipper-blocker
-    License: MIT
+    Repo: https://github.com/prslv/youtube-adskipper
+    License: CC0 1.0 Universal
+    Author: https://github.com/prlsv
 */
 (function () {
     'use strict';

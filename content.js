@@ -1,6 +1,5 @@
 /*
     Repo: https://github.com/prslv/youtube-adskipper
-    License: CC0 1.0 Universal
     Author: https://github.com/prlsv
 */
 (function () {
@@ -15,7 +14,7 @@
         '#masthead-ad',
         'ytd-ad-slot-renderer',
     ];
-
+    let skipAdTimeout;
     function removeElements() {
         // Loop through each element
         elementsToRemove.forEach(selector => {
@@ -26,7 +25,7 @@
                 element.remove();
                 // console.log('%c Ad element removed! ', 'background: #222; color: #bada55', element);
             }
-            
+
             const adSlot = document.querySelector('ytd-ad-slot-renderer');
             if (adSlot) {
                 /* 
@@ -34,7 +33,7 @@
                     and height, and if not removed, we get empty blocks at random spots. Navigate to the Notes in the repository for a visual example.
                 */
                 const closestRichItemRenderer = adSlot.closest('.ytd-rich-grid-row');
-                
+
                 if (closestRichItemRenderer) {
                     closestRichItemRenderer.remove();
                     // console.log('%c REMOVED PARENT OF ELEMENT -> ', 'background: #222, color: #bada55', closestRichItemRenderer);
@@ -42,7 +41,6 @@
             }
         });
     }
-
     function playerAds() {
         const skipad = document.querySelector('.ytp-ad-skip-button-modern.ytp-button');
         const playVid = document.querySelector('.ytp-play-button');
@@ -50,63 +48,58 @@
         const intrinsicAdOverlay = document.querySelector('.ytp-ad-action-interstitial'); // this is the overlay of the 'last man standing' ad, on which the skip button click doesn't work (for me).
         const videoPlayer = document.querySelector('.video-stream.html5-main-video');
 
-        if (skipad || intrinsicAdOverlay) {
+        if (skipad || intrinsicAdOverlay || adOverlay) {
             // if the skip button is available, call skipAd() function.
-            skipAd(skipad, videoPlayer);
-
-            // Check if the video is paused
-            if (playVid && videoPlayer.paused) {
-                // If it's paused, unpause after 100ms
-                setTimeout(() => {
-                    videoPlayer.play();
-                    // console.log('%c VIDEO IS PAUSED, RESUMING PLAYBACK! ', 'background: #222; color: #bada55');
-                }, 1000);
-            }
+            skipAd(skipad, videoPlayer, adOverlay);
         }
 
-        if (adOverlay && !skipad) {
-            // Video ad detected, and is unskippable
-            // Mute the ad and set the speed to 16x (maximum for youtube's player)
-            
-            // console.log('%c 🚨 Unskippable ad detected, muting and speeding it up!', 'background: #222; color: #bada55');
 
-            muteAndSpeedUp(videoPlayer, 16, adOverlay);
-        }
-
-        // if you prefer, use a function
-        function muteAndSpeedUp(player, speed, overlay) {
+        function skipAd(skipbtn, player, overlay) {
+            // Check if the ad is a video with set length
+            clearTimeout(skipAdTimeout);
+            const skipbtn2 = document.querySelector(".ytp-skip-ad-button");
 
             player.style.opacity = 0;
-            player.playbackRate = speed;
-            
-                // I stg this worked the first day, now it just doesn't ??
-                setTimeout(() => {
-                    // This is supposed to mute the player while the unskippable ad is playing
-                    player.mute = true;
-                },100);
-                ///////////
+
+            player.mute = true;
+
+            //set player speed to 16x
+            player.playbackRate = 16;
+
+            skipAdTimeout = setTimeout(() => {
+                if (!isNaN(player.duration) && isFinite(player.currentTime) && player.currentTime > 0) {
+                    player.currentTime += player.duration;
+                    // console.log('SKIPPED AD');
+                }
+                if (skipbtn) {
+                    skipbtn.click();
+                }
+                if (skipbtn2) {
+                    skipbtn2.click();
+                }
+                const event = new KeyboardEvent("keydown", {
+                    key: "ArrowRight"
+                });
+                document.dispatchEvent(event);
+            }, 10);
+
 
             const adOverlayObserver = new MutationObserver(() => {
                 // Set the opacity to 1 (show the video) and disconnect the observer
                 player.style.opacity = 1;
+                // Check if the video is paused
+                if (player.paused) {
+                    // If it's paused, unpause
+                    player.play();
+                    // console.log('%c VIDEO IS PAUSED, RESUMING PLAYBACK! ', 'background: #222; color: #bada55');
+                }
 
                 adOverlayObserver.disconnect();
                 // console.log('%c Ad has ended, setting opacity to 1!', 'background: #222; color: #bada55');
             });
-    
-            // Observe removal of the adOverlay element
-            adOverlayObserver.observe(overlay.parentElement, { childList: true });
-        }
 
-        function skipAd(skipbtn, player) {
-            // Check if the ad is a video with set length
-            if (!isNaN(player.currentTime) && isFinite(player.currentTime) && player.currentTime > 0) {
-                // Ad has a length, skip it
-                player.currentTime = player.duration;
-            } else {
-                // Ad does not have a length, ad is static
-                // console.log('%c 🚨 Skippable ad detected', 'background: #222; color: #bada55');
-                skipbtn.click();
+            if (overlay && overlay.parentElement instanceof Node) {
+                adOverlayObserver.observe(overlay.parentElement, { childList: true });
             }
         }
     }

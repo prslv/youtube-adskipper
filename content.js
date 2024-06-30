@@ -42,13 +42,13 @@
         });
     }
     function playerAds() {
-        const skipad = document.querySelector('.ytp-ad-skip-button-modern.ytp-button');
+        const skipad = document.querySelector('.ytp-skip-ad-button');
         const playVid = document.querySelector('.ytp-play-button');
         const adOverlay = document.querySelector('.ytp-ad-player-overlay');
         const intrinsicAdOverlay = document.querySelector('.ytp-ad-action-interstitial'); // this is the overlay of the 'last man standing' ad, on which the skip button click doesn't work (for me).
         const videoPlayer = document.querySelector('.video-stream.html5-main-video');
-
-        if (skipad || intrinsicAdOverlay || adOverlay) {
+        const adCreated = document.querySelector('.ad-showing');
+        if (skipad || intrinsicAdOverlay || adOverlay || adCreated) {
             // if the skip button is available, call skipAd() function.
             skipAd(skipad, videoPlayer, adOverlay);
         }
@@ -59,34 +59,38 @@
             clearTimeout(skipAdTimeout);
             const skipbtn2 = document.querySelector(".ytp-skip-ad-button");
 
-            player.style.opacity = 0;
+            // player.style.opacity = 0;
 
-            player.mute = true;
+            // player.mute = true;
 
-            //set player speed to 16x
-            player.playbackRate = 16;
+            // //set player speed to 16x
+            // player.playbackRate = 16;
 
-            skipAdTimeout = setTimeout(() => {
-                if (!isNaN(player.duration) && isFinite(player.currentTime) && player.currentTime > 0) {
-                    player.currentTime += player.duration;
-                    // console.log('SKIPPED AD');
-                }
-                if (skipbtn) {
-                    skipbtn.click();
-                }
-                if (skipbtn2) {
-                    skipbtn2.click();
-                }
-                const event = new KeyboardEvent("keydown", {
-                    key: "ArrowRight"
-                });
-                document.dispatchEvent(event);
-            }, 10);
-
+            if (!isNaN(player.duration) && isFinite(player.currentTime) && player.currentTime > 0) {
+                player.currentTime += 99999999;
+                // console.log('SKIPPED AD');
+            }
+            if (skipbtn) {
+                skipbtn.click();
+            }
+            if (skipbtn2) {
+                skipbtn2.click();
+            }
+            const event = new KeyboardEvent("keydown", {
+                key: "ArrowRight"
+            });
+            document.dispatchEvent(event);
+            // player.style.opacity = 1;
+            // Check if the video is paused
+            if (player.paused) {
+                // If it's paused, unpause
+                player.play();
+                // console.log('%c VIDEO IS PAUSED, RESUMING PLAYBACK! ', 'background: #222; color: #bada55');
+            }
 
             const adOverlayObserver = new MutationObserver(() => {
                 // Set the opacity to 1 (show the video) and disconnect the observer
-                player.style.opacity = 1;
+                // player.style.opacity = 1;
                 // Check if the video is paused
                 if (player.paused) {
                     // If it's paused, unpause
